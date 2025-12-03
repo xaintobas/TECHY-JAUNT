@@ -1,9 +1,3 @@
-# TechyJaunt Backend Development Training Repository
-
-Welcome to my **Backend Development Training** repository for the **TechyJaunt Bootcamp**! 🎉
-
-This repository contains all my **assignments** throughout the training program.
-
 # Section A — Intro to Backend (Theory: 12 Questions)
 
 ## What is backend development and how is it different from frontend development?
