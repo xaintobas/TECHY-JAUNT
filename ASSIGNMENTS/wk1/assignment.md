@@ -8,7 +8,7 @@ This repository contains all my **assignments** throughout the training program.
 
 ## What is backend development and how is it different from frontend development?
 
-`Backend development is the process of creating the part of a website or app that the users does not see. It involves handling the logic, database, server and API that make the app or website to function properly. While frontend development is the process of creating the part of an app or website that the users interacts with, like the image, buttons, texts etc. `
+Backend development is the process of creating the part of a website or app that the users does not see. It involves handling the logic, database, server and API that make the app or website to function properly. While frontend development is the process of creating the part of an app or website that the users interacts with, like the image, buttons, texts etc.
 
 ## Mention three backend programming languages.
 
@@ -128,7 +128,7 @@ let student = {name: “Stephen”, age: 10, department: “Backend Development�
 
 ```js
 function greet() {
-console.log(“Hello World”)
+  console.log(“Hello World”)
 }
 ```
 
@@ -149,9 +149,13 @@ console.log(“Hello World”)
 ```js
 const arrayOfColor = [“RED”, ”GREEN”, ”BLACK”, ”BLUE”, ”YELLOW”];
 console.log(arrayOfColor[0]);
-Write a function that returns the square of a number passed into it.
+```
+
+## Write a function that returns the square of a number passed into it.
+
+```js
 function squareNumber(number) {
-return number * number;
+  return number * number;
 }
 ```
 
