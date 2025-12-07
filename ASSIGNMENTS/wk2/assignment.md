@@ -1,5 +1,4 @@
-# Week 2 Assignment Instructions
-
+Assignment Details
 You are to conceptualize and implement a basic (but not overly simplistic) CRUD (Create, Read, Update, Delete) application utilizing the Express framework in conjunction with MongoDB as your database solution.
 
 The application should incorporate environmental variable management through the use of dotenv, and employ Morgan as a middleware for request logging and debugging insights, but ensure that your configuration avoids exposing sensitive credentials (yet everything must still function locally).
