@@ -23,7 +23,7 @@ The assignment's key focus was implementing the OTP expiry logic, ensuring a gen
 The project follows a modular pattern, organizing files by concern to improve maintainability and scalability.
 
 ```text
-wk2/
+wk3/
 ├── src/
 │   ├── config/       # Database and NodeMailer configuration (database.js, nodemailer.js)
 │   ├── controllers/  # Business logic for all routes (userAuthController.js)
@@ -66,7 +66,7 @@ Follow these steps to get the application running on your machine.
 
 ```bash
 git clone <repository-url>
-cd wk2
+cd wk3
 npm install
 ```
 
