@@ -1,6 +1,7 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import transporter from "../config/nodemailer.js";
+import jwt from "jsonwebtoken";
 
 export const signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -35,7 +36,7 @@ export const signup = async (req, res) => {
     };
     try {
       await transporter.sendMail(mailOption);
-      return res.json({ message: "User created!!!" });
+      return res.json({ message: "User created!!!", otp });
     } catch (error) {
       return res.json({ data: error.message });
     }
@@ -110,28 +111,30 @@ export const login = async (req, res) => {
         message: "Please provide all info. All the fields are required.",
       });
     }
-    const existingUser = await User.findOne({ email });
-    if (!existingUser) {
+    const user = await User.findOne({ email });
+    if (!user) {
       return res.json({
         message: "User does not exist",
       });
     }
-    if (!existingUser.isVerified) {
+    if (!user.isVerified) {
       return res.json({
         message: "Please verify you account first you login!!!.",
       });
     }
 
-    const isPasswordCorrect = await bcrypt.compare(
-      password,
-      existingUser.password
-    );
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
       return res.json({
         message: "Invalid password!.",
       });
     }
-    return res.json({ message: "Login Successful......." });
+
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
+    return res.json({ message: "Login Successful.......", token });
   } catch (error) {
     return res.json({ message: "Login Failed!!", data: error.message });
   }
@@ -193,5 +196,30 @@ export const forgetPassword = async (req, res) => {
     });
   } catch (error) {
     return res.json({ message: "Unable to request a new OTP!!" });
+  }
+};
+
+export const getAllUsers = async (req, res) => {
+  const { userId } = req.user;
+  try {
+    const adminUser = await User.findById(userId);
+    if (adminUser.role !== "admin") {
+      return res.json({
+        message: "Access denied",
+      });
+    }
+
+    const users = await User.find().select(
+      "-password -isVerified -otp -otpExpiry -createdAt -updatedAt -__v"
+    );
+    return res.json({
+      message: "See all users!!",
+      data: users,
+    });
+  } catch (error) {
+    return res.json({
+      message: "Unable to fetch all users!!",
+      data: error.message,
+    });
   }
 };
