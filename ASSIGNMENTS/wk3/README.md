@@ -4,6 +4,8 @@ A secure backend RESTful API built with Node.js and the Express framework, utili
 
 The assignment's key focus was implementing the OTP expiry logic, ensuring a generated OTP has a time limit (10 minutes) before it can no longer be used for verification or password reset.
 
+## Click to watch wideo below 👇
+
 [![Watch the Demo](screenshot-auth.png)](https://drive.google.com/file/d/1OkwecdZ2zzbu28N6YzTwCZBsknNKYWZ3/view?usp=sharing)
 
 ## 🛠️ Tech Stack
