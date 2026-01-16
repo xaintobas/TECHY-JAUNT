@@ -17,7 +17,7 @@ userAuthRoute.post("/login", login);
 userAuthRoute.put("/verify-otp", verifyOtp);
 userAuthRoute.put("/resend-otp", resendOtp);
 userAuthRoute.put("/reset-password", resetPassword);
-userAuthRoute.put("/froget-password", forgetPassword);
+userAuthRoute.put("/forget-password", forgetPassword);
 userAuthRoute.get("/get-all-users", isUserAuthMiddleware, getAllUsers);
 
 export default userAuthRoute;
